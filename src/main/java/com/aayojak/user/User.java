@@ -19,7 +19,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class User  implements UserDetails{
 
     @Id
-    @Column
+    @Column(name="user_id")
     int userId;
 
     @Column

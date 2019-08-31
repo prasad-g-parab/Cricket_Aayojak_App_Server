@@ -55,6 +55,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20090211</version>
+        </dependency>
+
+        <!-- This dependancy used to work with JSON object in Mysql -->
+        <dependency>
+            <groupId>com.vladmihalcea</groupId>
+            <artifactId>hibernate-types-5</artifactId>
+             <version>2.6.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -67,3 +79,7 @@
     </build>
 
 </project>
+
+
+
+

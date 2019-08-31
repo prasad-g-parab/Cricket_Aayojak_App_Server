@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     @Autowired
-    UserRepository UserRepository;
+    UserRepository userRepository;
 
     public UserDetails findUserByMobileAndRole(String mobile, String role) {
 
-        return UserRepository.findDistinctByMobileAndRole(mobile, role);
+        return userRepository.findDistinctByMobileAndRole(mobile, role);
     }
 
 }

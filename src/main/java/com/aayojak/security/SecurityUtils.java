@@ -5,7 +5,10 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -43,5 +46,27 @@ public class SecurityUtils {
         response.setStatus(status);
         writer.flush();
         writer.close();
+    }
+
+    public static void sendError(HttpServletResponse response, AuthenticationException exception, int status, String reason) throws IOException {
+        response.setContentType("application/json;charset=UTF-8");
+        response.setStatus(status);
+        PrintWriter writer = response.getWriter();
+
+        JSONObject json = new JSONObject();
+       try {
+        json.put("Status Code", status);
+        json.put("Reason", exception.getMessage());
+        json.put("Message", reason);
+        json.put("Response", response.toString());
+    } catch (JSONException e) {
+
+    }
+
+        writer.write(json.toString());
+
+        writer.flush();
+        writer.close();
+        
     }
 }

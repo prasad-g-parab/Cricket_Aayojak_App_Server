@@ -1,7 +1,5 @@
 package com.aayojak.security;
 
-import java.io.PrintWriter;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
